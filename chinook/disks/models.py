@@ -3,7 +3,7 @@ from django.db import models
 class Track(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=200)
-    composer = models.CharField(max_length=220)
+    composer = models.CharField(max_length=220,not_null=False)
     milliseconds = models.IntegerField()
     bytes = models.IntegerField()
     unitPrice = models.DecimalField(max_digits=5, decimal_places=2)
