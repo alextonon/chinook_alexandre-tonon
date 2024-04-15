@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.http import HttpResponse
 from django.template import loader
@@ -16,19 +16,11 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-def album(request, album_id):
-    album_track_list = Track.objects.filter(album=album_id)
+def album(request, title):
+    album = get_object_or_404(Album, title=title)
+    album_track_list = Track.objects.filter(album=album.id)
     template = loader.get_template("disks/album.html")
     context = {
-        "all_album_list": all_album_list,
+        "album_track_list": album_track_list,
     }
     return HttpResponse(template.render(context, request))
-
-
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
