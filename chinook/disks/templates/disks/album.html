@@ -1,0 +1,9 @@
+{% if all_album_list %}
+    <ul>
+    {% for album in all_album_list %}
+        <li><a href="/disks/{{ album.title }}/">{{ album.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No disks are available.</p>
+{% endif %}
