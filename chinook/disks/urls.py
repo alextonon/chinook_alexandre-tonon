@@ -5,10 +5,10 @@ from . import views
 urlpatterns = [
     # ex: /disks/
     path("", views.index, name="index"),
-    # ex: /disks/5/
-    path("<int:id>/", views.detail, name="detail"),
-    # ex: /disks/5/results/
-    path("<int:question_id>/results/", views.results, name="results"),
-    # ex: /polls/5/vote/
-    path("<int:question_id>/vote/", views.vote, name="vote"),
+    # # ex: /disks/5/
+    # path("<int:id>/", views.detail, name="detail"),
+    # # ex: /disks/5/results/
+    # path("<int:question_id>/results/", views.results, name="results"),
+    # # ex: /polls/5/vote/
+    # path("<int:question_id>/vote/", views.vote, name="vote"),
 ]
